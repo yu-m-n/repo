@@ -1,6 +1,10 @@
+from pathlib import Path
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+
+BASE_DIR = Path(__file__).resolve().parent
+ROOT_DIR = BASE_DIR.parents[2]
 
 st.set_page_config(page_title="반품 예측 대시보드", layout="wide")
 
@@ -10,12 +14,12 @@ plt.rcParams["axes.unicode_minus"] = False
 
 @st.cache_data
 def load_data():
-    X_tr_unscaled = pd.read_csv("X_tr_unscaled.csv")
-    X_val_unscaled = pd.read_csv("X_val_unscaled.csv")
-    X_test_unscaled = pd.read_csv("X_test_unscaled.csv")
-    y_tr = pd.read_csv("y_tr.csv")
-    y_val = pd.read_csv("y_val.csv")
-    test_order_id = pd.read_csv("test_order_id.csv")
+    X_tr_unscaled = pd.read_csv(ROOT_DIR / "X_tr_unscaled.csv")
+    X_val_unscaled = pd.read_csv(ROOT_DIR / "X_val_unscaled.csv")
+    X_test_unscaled = pd.read_csv(ROOT_DIR / "X_test_unscaled.csv")
+    y_tr = pd.read_csv(ROOT_DIR / "y_tr.csv")
+    y_val = pd.read_csv(ROOT_DIR / "y_val.csv")
+    test_order_id = pd.read_csv(ROOT_DIR / "test_order_id.csv")
 
     metrics = pd.DataFrame([
         {"model": "LightGBM", "accuracy": 0.5673, "f1": 0.4915, "roc_auc": 0.5927, "note": "ROC-AUC 최고"},
