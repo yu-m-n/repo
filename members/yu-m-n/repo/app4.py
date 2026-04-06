@@ -416,22 +416,6 @@ with col_cm2:
 st.markdown("---")
 
 # -----------------------------
-# 전체 모델 혼동행렬 비교
-# -----------------------------
-st.subheader("전체 모델 혼동행렬 비교")
-
-num_models = len(available_models)
-cols = st.columns(2)
-
-for idx, model_name in enumerate(available_models):
-    model_df = filtered_model_dfs[model_name]
-    _, fig = draw_confusion_matrix(model_df, f"{model_name} 혼동행렬")
-    with cols[idx % 2]:
-        st.pyplot(fig)
-
-st.markdown("---")
-
-# -----------------------------
 # 실제 반품 패턴 분석
 # -----------------------------
 st.subheader("실제 반품 패턴 분석")
