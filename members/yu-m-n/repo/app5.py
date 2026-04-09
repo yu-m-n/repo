@@ -70,9 +70,9 @@ MODEL_CONFIG = {
         "test_pred": "test_predictions_xgboost.csv",
     },
     "Deep Learning": {
-        "val_pred": "val_predictions_dl.csv",
+        "val_pred": "val_predictions_pytorch_optuna.csv",
         "feature_importance": None,
-        "test_pred": "test_predictions_dl.csv",
+        "test_pred": "test_predictions_pytorch_optuna.csv",
     },
 }
 
